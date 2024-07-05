@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul>
+  {% for msg in message_list %}
+  <li>
+    {{ msg.created }}
+    <a href="{% url 'msg_view' msg.id %}">{{ msg.subject }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

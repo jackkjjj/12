@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>留言板</title>
+</head>
+<body>
+  <h1>留言板</h1>
+  <div>
+    <a href="/">首頁</a>
+    <a href="{% url 'msg_create' %}">新增留言</a>
+    {% if user.is_authenticated %}
+      {{ user.username }}
+      <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">登出</button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}">登入</a>
+    {% endif %}    
+  </div>
+  <div>{% block content %}{% endblock %}</div>
+</body>
+</html>

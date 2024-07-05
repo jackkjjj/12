@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'message'
+    
 ]
 
 MIDDLEWARE = [
@@ -105,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hant'
 
-TIME_ZONE = 'Asia-Taipei'
+TIME_ZONE = 'Asia/Taipei'
 
 USE_I18N = True
 
@@ -121,3 +123,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# 登入後重新導向首頁 (預設會導向 /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+
+# 登出後重新導向首頁
+LOGOUT_REDIRECT_URL = '/message/'
